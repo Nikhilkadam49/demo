@@ -34,10 +34,7 @@ variable "instance_type" {
     default     = "t2.micro" 
 }
 
-variable "ami_id" {
-    description ="aws region to deploy the innfrastructure"
-    type        = string
-    default     = "ami-084568db4383264d4" 
+
 }
 
 
