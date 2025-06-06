@@ -31,7 +31,7 @@ variable "ami_id" {
 variable "instance_type" {
     description ="aws region to deploy the innfrastructure"
     type        = string
-    default     = "t2.micro"" 
+    default     = "t2.micro" 
 }
 
 variable "ami_id" {
