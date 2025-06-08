@@ -14,13 +14,13 @@ module "ec2" {
     source = "./ec2"
 }
 
- 
+
 resource "aws_internet_gateway" "my_igw" {
-    vpc_id = aws_vpc.my_vpc.id
+    vpc_id = module.vpc.my_vpc.id
 }
 
 resource "aws_route_table" "my_rt" {
-    vpc_id = aws_vpc.my_vpc.id
+    vpc_id = module.vpc.my_vpc.id
 
     route {
         cidr_block = "0.0.0.0/0"
@@ -29,7 +29,7 @@ resource "aws_route_table" "my_rt" {
 }
 
 resource "aws_route_table_association" "my_rta" {
-    subnet_id = aws_subnet.my_subnet.id
-    route_table_id = aws_route_table.my_rt.id
+    subnet_id = module.subnet.my_subnet.id
+    route_table_id = module.route_table.my_rt.id
 }
 
