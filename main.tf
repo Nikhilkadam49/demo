@@ -1,6 +1,19 @@
 provider "aws" {
     region = var.region
 }
+
+module "vpc" {
+    source = "./vpc"
+}
+
+module "subnet" {
+    source = "./subnet"
+}
+
+module "ec2" {
+    source = "./ec2"
+}
+
  
 resource "aws_internet_gateway" "my_igw" {
     vpc_id = aws_vpc.my_vpc.id
@@ -20,14 +33,3 @@ resource "aws_route_table_association" "my_rta" {
     route_table_id = aws_route_table.my_rt.id
 }
 
-module "vpc" {
-    source = "./vpc"
-}
-
-module "subnet" {
-    source = "./subnet"
-}
-
-module "ec2" {
-    source = "./ec2"
-}
